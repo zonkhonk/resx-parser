@@ -1,0 +1,23 @@
+{
+  "name": "resx-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/lib/resx-parser.js",
+  "scripts": {
+    "build": "babel src --out-dir lib",
+     "test": "jasmine-node spec/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "The MIT License (MIT)",
+  "dependencies": {
+    "xml2js": "^0.4.16",
+    "change-case":"^3.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.9.0",
+    "jasmine-node":"^1.14.5"
+  }
+}
