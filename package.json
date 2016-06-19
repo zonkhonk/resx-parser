@@ -1,23 +1,28 @@
 {
   "name": "resx-parser",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple parser to parse  resource files (.resx) to json for NodeJS",
   "main": "/lib/resx-parser.js",
+  "repository": "kjayasa/resx-parser",
+  "keywords": ["resx parser", "resource", "parser"],
+  "author": {
+    "name": "jayasanker karakulath",
+    "email": "gitdev@jayk.me",
+    "url": "http://jayk.me"
+  },
+  "license": "The MIT License (MIT)",
   "scripts": {
     "build": "babel src --out-dir lib",
-     "test": "jasmine-node spec/"
+    "test": "jasmine-node spec/"
   },
-  "keywords": [],
-  "author": "",
-  "license": "The MIT License (MIT)",
   "dependencies": {
     "xml2js": "^0.4.16",
-    "change-case":"^3.0.0"
+    "change-case": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.9.0",
-    "jasmine-node":"^1.14.5"
+    "jasmine-node": "^1.14.5"
   }
 }
