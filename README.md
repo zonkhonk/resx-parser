@@ -1,8 +1,7 @@
-# resx-parser [![Build Status](https://travis-ci.org/invalidred/cryptlib.svg?branch=master)](https://travis-ci.org/invalidred/cryptlib)
+# resx-parser [![Build Status](https://travis-ci.org/kjayasa/resx-parser.svg?branch=master)](https://travis-ci.org/kjayasa/resx-parser)
 A simple parser to parse  resource files (.resx) to json for NodeJS.
 
-It written in ES6 (src folder) and transpiled using Babel to ES5(dist folder).
-
+It written in ES6  and transpiled using Babel .
 
 ## Installation
 
