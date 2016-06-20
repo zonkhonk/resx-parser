@@ -24,7 +24,7 @@
     "email": "gitdev@jayk.me",
     "url": "http://jayk.me"
   },
-  "license": "The MIT License (MIT)",
+  "license": "MIT",
   "scripts": {
     "build": "babel src --out-dir lib",
     "pretest": "babel src --out-dir lib",
