@@ -91,4 +91,4 @@
   parseFile();
 
 
-})(require('../lib/resx-parser'), require('fs'),require('q'));
+})(require('../lib/resx-parser'), require('fs'));
