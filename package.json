@@ -27,6 +27,7 @@
   "license": "The MIT License (MIT)",
   "scripts": {
     "build": "babel src --out-dir lib",
+    "pretest": "babel src --out-dir lib",
     "test": "jasmine-node spec/",
     "example": "node ./example/"
   },
