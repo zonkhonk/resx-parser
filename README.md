@@ -3,7 +3,7 @@ A simple parser to parse  resource files (.resx) to json for NodeJS.
 
 It parses a .resx file or a resource encoded xml string or and returns a json object in the format 
 ``` { "resource_id" : resource value }```.
-The 'shape' of generated json can be changed by using various options.
+The 'shape' of generated json can be changed by using various options.All parsing is `async'.
 
 It is written in ES6 and transpiled to ES5 using Babel .
 
@@ -11,9 +11,6 @@ It is written in ES6 and transpiled to ES5 using Babel .
 `npm install resx-parser --save`
 
 ## Usage
-
-there are some examples in the example folser
-
 ### Parse a string
 
 ```javascript
@@ -52,13 +49,11 @@ parser.parseString(xmlString, function(err, result) {
 var ResxParser = require('resx-parser');
   // init parser with default options
 var parser = new ResxParser();
-f (err) {
+if (err) {
     return console.log(err);
   } else {
     console.log(result);
   }
-});
-
 ```
 
 ### Options
@@ -67,7 +62,7 @@ The options object can have the following parameters.
 #### convertIdCase
 Use it convert the case of the resource id. By default it is 'camel'.
 This library uses [change-case](https://github.com/blakeembrey/change-case) internally.
-The supported values are as follows.(description shamelessly stolen from [change-case](https://github.com/blakeembrey/change-case) too)
+The supported values are as follows.(description shamelessly stolen from [change-case](https://github.com/blakeembrey/change-case))
 * camel  
 Converts to a string with the separators denoted by having the next letter capitalized.  
 **'test string' will be converted to "testString"**
@@ -139,10 +134,10 @@ Return the string with the first character upper cased.
   ```
 
 #### fnTransformId 
-Accepts a function that will be called when each resource .Use it to do any kind of processing on the resource id.
+Use it to do any kind of processing on the resource id.
 ```javascript
   var options = {
-      fnTransformId: function(id) { // will be called for each resource
+      fnTransformId: function(id) {
         return "RESOURCE_" + id;
       }
     };  
@@ -150,10 +145,10 @@ Accepts a function that will be called when each resource .Use it to do any kind
     var parser = new ResxParser(options);
   ```
 #### fnTransformValue 
-Accepts a function that will be called when each value is resource .Use it to do any kind of processing on the resource id or to change the stracture of the returned json object.
+Use it to do any kind of processing on the resource string or to change the stracture of the returned json object.
 ```javascript
   var options = {
-      fnTransformValue: function (id, value, comment) { // will be called for each resource id
+      fnTransformValue: function (id, value, comment) { 
         return {
           value:value,
           comment:comment
@@ -167,29 +162,23 @@ Accepts a function that will be called when each value is resource .Use it to do
   ```javascript
   {
     foo:{
-      value:
-
+      value:"bar"
+      comment:"label for foo button"
     }
   }
   ```
 
 #### filter
+.Use it to filter out any resources from being processed.A return value of `true' will exclude the resource from processing.
 ```javascript
   var options = {
-      convertIdCase: 'snake', // camel,constant,dot,header,isLower,isUpper,lower,lcFirst,no,param,pascal,path,sentence,snake,swap,title,upper,ucFirst
-      fnTransformId: function(id) { // will be called for each resource id
-        return "RESOURCE_" + id;
-      },
-      fnTransformValue: function (id, value, comment) { // will be called for each resource id
-        if (value) {
-          return value.toUpperCase();
-        }
-      }
-    };  
+      filter: function(id, value, comment) {
+        return (id.lastIndexOf("_js_", 0) !== 0); // filters out all resources that does not start with _js_
+      }  
+    };
 
     var parser = new ResxParser(options);
   ```
-
 
 ## Run Code Sample
 
