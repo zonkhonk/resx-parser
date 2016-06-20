@@ -49,11 +49,13 @@ parser.parseString(xmlString, function(err, result) {
 var ResxParser = require('resx-parser');
   // init parser with default options
 var parser = new ResxParser();
-if (err) {
+.parseResxFile("./example.resx", function(err, result) {
+  if (err) {
     return console.log(err);
   } else {
     console.log(result);
   }
+});
 ```
 
 ### Options
