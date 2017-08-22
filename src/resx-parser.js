@@ -65,8 +65,10 @@ export default class ResxParser {
         if (callback) {
           callback(null, resources);
         }
-      }
-    } catch (ex) {
+      } else if (callback) {
+	  callback(null, {});
+	}
+  } catch (ex) {
       if (callback) {
         callback(ex, null)
       }
